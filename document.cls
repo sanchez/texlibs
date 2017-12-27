@@ -8,6 +8,10 @@
 \RequirePackage{hyperref}
 \RequirePackage{helvet}
 \RequirePackage[framemethod=TikZ,xcolor]{mdframed}
+\RequirePackage{float}
+\RequirePackage{fancyhdr}
+\RequirePackage[margin=20mm]{geometry}
+\RequirePackage{tocloft}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
@@ -43,6 +47,7 @@
             \ifdefined\@secnumber\theheading\quad\fi
             #1
             \ifdefined\@headrule\ \vrulefill{0.12em}\fi
+            \vspace{0.4em}
         \end{minipage}
 }
 \renewcommand{\subsection}[1]{
@@ -57,6 +62,7 @@
         \noindent\primary\Large\bfseries
         \ifdefined\@secnumber\theheading.\thesubheading\quad\fi
         #1
+        \vspace{0.4em}
     \end{minipage}
 }
 \renewcommand{\subsubsection}[1]{
@@ -70,6 +76,7 @@
         \noindent\primary\large\bfseries
         \ifdefined\@secnumber\theheading.\thesubheading.\thesubsubheading\quad\fi
         \firstletter#1
+        \vspace{0.4em}
     \end{minipage}
 }
 
@@ -80,3 +87,12 @@
 \newenvironment{note}[1]
     {\noindent\begin{minipage}[t]{\linewidth}\begin{notebox}\begin{minipage}{\linewidth}\LARGE\primary#1\vrulefill{0.12em}\black\end{minipage}}
     {\end{notebox}\end{minipage}}
+
+\pagestyle{fancy}\fancyhf{}
+\lhead{}\chead{}\rhead{}
+\lfoot{\code}\cfoot{\username (\snum)}{\rfoot{Page \thepage}}
+\renewcommand{\headrulewidth}{0.15em}
+\renewcommand{\footrulewidth}{0.15em}
+\renewcommand{\headrule}{\hbox to\headwidth{\black\leaders\hrule height\headrulewidth\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\black\leaders\hrule height\footrulewidth\hfill}}
+\pagenumbering{arabic}
