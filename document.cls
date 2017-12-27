@@ -7,6 +7,7 @@
 \RequirePackage{ncolor}
 \RequirePackage{hyperref}
 \RequirePackage{helvet}
+\RequirePackage[framemethod=TikZ,xcolor]{mdframed}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
@@ -71,3 +72,11 @@
         \firstletter#1
     \end{minipage}
 }
+
+\newcommand{\@marginwidth}{1em}
+\newcommand{\@linewidth}{0.4em}
+\newcommand{\@cornersize}{10pt}
+\newmdenv[innerleftmargin=\@marginwidth,innertopmargin=\@marginwidth,innerbottommargin=\@marginwidth,innerrightmargin=\@marginwidth,linewidth=\@linewidth,outerlinewidth=0pt,innerlinewidth=0pt,roundcorner=\@cornersize,linecolor=primary]{notebox}
+\newenvironment{note}[1]
+    {\noindent\begin{minipage}[t]{\linewidth}\begin{notebox}\begin{minipage}{\linewidth}\LARGE\primary#1\vrulefill{0.12em}\black\end{minipage}}
+    {\end{notebox}\end{minipage}}
