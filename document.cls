@@ -37,11 +37,37 @@
             \ifdefined\@secnumber\theheading\quad\fi
             #1
         }
-        \vspace{1em}
         \noindent\begin{minipage}{\textwidth}
             \noindent\primary\LARGE\bfseries
             \ifdefined\@secnumber\theheading\quad\fi
             #1
             \ifdefined\@headrule\ \vrulefill{0.12em}\fi
         \end{minipage}
+}
+\renewcommand{\subsection}[1]{
+    \stepcounter{subheading}
+    \setcounter{subsubheading}{0}
+    \phantomsection
+    \addcontentsline{toc}{subsection}{
+        \ifdefined\@secnumber\thesubheading\quad\fi
+        #1
+    }
+    \noindent\begin{minipage}{\textwidth}
+        \noindent\primary\Large\bfseries
+        \ifdefined\@secnumber\theheading.\thesubheading\quad\fi
+        #1
+    \end{minipage}
+}
+\renewcommand{\subsubsection}[1]{
+    \stepcounter{subsubheading}
+    \phantomsection
+    \addcontentsline{toc}{subsubsection}{
+        \ifdefined\@secnumber\thesubsubheading\quad\fi
+        #1
+    }
+    \noindent\begin{minipage}{\textwidth}
+        \noindent\primary\large\bfseries
+        \ifdefined\@secnumber\theheading.\thesubheading.\thesubsubheading\quad\fi
+        \firstletter#1
+    \end{minipage}
 }
