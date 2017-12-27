@@ -12,6 +12,7 @@
 \RequirePackage{fancyhdr}
 \RequirePackage[margin=20mm]{geometry}
 \RequirePackage{tocloft}
+\RequirePackage{titlepage}
 
 % Options
 \DeclareOption{number}{\def\@secnumber}
