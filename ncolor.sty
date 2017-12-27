@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ncolor}
+
+\RequirePackage{xcolor}
+
+% color definitions
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{black}{HTML}{000000}
+\definecolor{green}{HTML}{22ba00}
+\definecolor{orange}{HTML}{FF6138}
+\definecolor{red}{HTML}{ba0900}
+\definecolor{blue}{HTML}{0b75cb}
+\definecolor{yellow}{HTML}{efc82b}
+\definecolor{purple}{HTML}{49075e}
+\colorlet{primary}{blue}
+
+\newcommand{\setprimary}[1]{
+    \colorlet{primary}{#1}
+}
+
+\newcommand{\primary}[0]{\color{primary}}
+\newcommand{\black}[0]{\color{black}}
