@@ -25,6 +25,16 @@
 % Set the font to sans
 \renewcommand{\familydefault}{\sfdefault}
 
+% toc styling
+\renewcommand{\cfttoctitlefont}{
+    \Large\primary\bfseries
+}
+\renewcommand{\cftaftertoctitle}{
+    \ifdefined\@headrule
+    \ \primary\vrulefill{0.12em}
+    \if
+}
+
 \setcounter{tocdepth}{3} % set how many headings show in toc
 \setcounter{secnumdepth}{3} % sets how many sections are shown with numbers
 
